@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(MyApp(
   home: MusicPlayer(),
@@ -14,10 +16,26 @@ void main() => runApp(MyApp(
     final musicName = "Abc - 123";
     final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
     
+    AudioPlayer audioPLayer;
+    AudioCache audioCache;
     @override
-    Widget build(BuildContext context){
-      return Container(
+      void initState(){
+        
+        super.initState();
 
+        audioPLayer = AudioPlayer();
+        audioCache = AudioCache(fixedPlayer: audioPLayer);
+
+      }
+
+
+    Widget build(BuildContext context){
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Music Player", style: TextStyle(
+          fontSize: 20,
+        )),
+      ),
       );
     }
   }
