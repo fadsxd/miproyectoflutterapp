@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-void main() => runApp(MyApp(
+
+void main() => runApp(MaterialApp(
   home: MusicPlayer(),
   ));
 
   class MusicPlayer extends StatefulWidget{
     @override
-    _MusicPlayerState createState() => _MUsicPlayerState();
+    _MusicPlayerState createState() => _MusicPlayerState();
   }
 
-  class _MusicPLayerState extends State<MusicPlayer>{
+  class _MusicPlayerState extends State <MusicPlayer>{
     final audioName = "audio.mp3";
     final musicName = "Abc - 123";
     final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
@@ -27,7 +28,6 @@ void main() => runApp(MyApp(
         audioCache = AudioCache(fixedPlayer: audioPLayer);
 
       }
-
 
     Widget build(BuildContext context){
       return Scaffold(
