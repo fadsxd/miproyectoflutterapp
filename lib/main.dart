@@ -21,6 +21,7 @@ void main() => runApp(MaterialApp(
     AudioCache audioCache;
 
     double volumen = 1;
+    double currentVolume = 0;
 
     @override
       void initState(){
@@ -85,7 +86,16 @@ void main() => runApp(MaterialApp(
             volumen -= 0.1;
           audioPlayer.setVolume(volumen);
           }
-          
+        }),
+        CreateIconButton(Icons.volume_off,Colors.red,()
+        {
+          if(volumen != 0){
+            currentVolume = volumen;
+            volumen = 0;
+          }else{
+            volumen = currentVolume;
+          }
+          audioPlayer.setVolume(volumen);
         }),
       ];
     }
