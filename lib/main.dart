@@ -36,6 +36,16 @@ void main() => runApp(MaterialApp(
           fontSize: 20,
         )),
       ),
+      body: Center(
+        child: IconButton(
+          icon: Icon(Icons.play_arrow),
+          iconSize: 64,
+          color: Colors.green,
+          onPressed: (){
+            audioCache.play(audioName);
+          },
+        ),
+      ),
       );
     }
   }
