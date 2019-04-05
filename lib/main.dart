@@ -61,6 +61,10 @@ void main() => runApp(MaterialApp(
         CreateIconButton(Icons.pause,Colors.green,()
         {
           audioPlayer.pause();
+        }),
+        CreateIconButton(Icons.stop,Colors.purple,()
+        {
+          audioPlayer.stop();
         })
       ];
     }
