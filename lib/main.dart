@@ -39,26 +39,30 @@ void main() => runApp(MaterialApp(
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-          IconButton(
-          icon: Icon(Icons.play_arrow),
-          iconSize: 64,
-          color: Colors.green,
-          onPressed: (){
-            audioCache.play(audioName);
-          },
-        ),
-        IconButton(
-          icon: Icon(Icons.pause),
-          iconSize: 64,
-          color: Colors.grey,
-          onPressed: (){
-            audioPlayer.pause();
-          },
-        ),
-        ]
+          children: audioControls(),
         )),
       );
+    }
+    Widget CreateIconButton(IconData icon,Color color, VoidCallback onPressed){
+      return IconButton(
+         icon: Icon(icon),
+         iconSize: 64,
+         color: color,
+         onPressed: onPressed,
+        );
+    }
+
+    List<Widget> audioControls(){
+      return <Widget>[
+          CreateIconButton(Icons.play_arrow,Colors.grey,()
+        {
+          audioCache.play(audioName);
+        }),
+        CreateIconButton(Icons.pause,Colors.green,()
+        {
+          audioPlayer.pause();
+        })
+      ];
     }
   }
 
