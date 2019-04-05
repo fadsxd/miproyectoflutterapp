@@ -19,6 +19,9 @@ void main() => runApp(MaterialApp(
     
     AudioPlayer audioPlayer;
     AudioCache audioCache;
+
+    double volumen = 1;
+
     @override
       void initState(){
         
@@ -46,7 +49,7 @@ void main() => runApp(MaterialApp(
     Widget CreateIconButton(IconData icon,Color color, VoidCallback onPressed){
       return IconButton(
          icon: Icon(icon),
-         iconSize: 64,
+         iconSize: 30,
          color: color,
          onPressed: onPressed,
         );
@@ -65,7 +68,25 @@ void main() => runApp(MaterialApp(
         CreateIconButton(Icons.stop,Colors.purple,()
         {
           audioPlayer.stop();
-        })
+        }),
+        CreateIconButton(Icons.volume_up,Colors.orange,()
+        {
+          if(volumen < 1)
+          {
+            volumen += 0.1;
+          audioPlayer.setVolume(volumen);
+          }
+          
+        }),
+        CreateIconButton(Icons.volume_down,Colors.orange,()
+        {
+          if(volumen != 0)
+          {
+            volumen -= 0.1;
+          audioPlayer.setVolume(volumen);
+          }
+          
+        }),
       ];
     }
   }
