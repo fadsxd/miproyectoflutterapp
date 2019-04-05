@@ -17,15 +17,15 @@ void main() => runApp(MaterialApp(
     final musicName = "Abc - 123";
     final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
     
-    AudioPlayer audioPLayer;
+    AudioPlayer audioPlayer;
     AudioCache audioCache;
     @override
       void initState(){
         
         super.initState();
 
-        audioPLayer = AudioPlayer();
-        audioCache = AudioCache(fixedPlayer: audioPLayer);
+        audioPlayer = AudioPlayer();
+        audioCache = AudioCache(fixedPlayer: audioPlayer);
 
       }
 
@@ -37,7 +37,10 @@ void main() => runApp(MaterialApp(
         )),
       ),
       body: Center(
-        child: IconButton(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+          IconButton(
           icon: Icon(Icons.play_arrow),
           iconSize: 64,
           color: Colors.green,
@@ -45,7 +48,16 @@ void main() => runApp(MaterialApp(
             audioCache.play(audioName);
           },
         ),
-      ),
+        IconButton(
+          icon: Icon(Icons.pause),
+          iconSize: 64,
+          color: Colors.grey,
+          onPressed: (){
+            audioPlayer.pause();
+          },
+        ),
+        ]
+        )),
       );
     }
   }
