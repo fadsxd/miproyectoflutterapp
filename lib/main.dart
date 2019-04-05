@@ -5,6 +5,7 @@ import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(MaterialApp(
   home: MusicPlayer(),
+  theme: ThemeData.dark(),
   ));
 
   class MusicPlayer extends StatefulWidget{
@@ -13,7 +14,7 @@ void main() => runApp(MaterialApp(
   }
 
   class _MusicPlayerState extends State <MusicPlayer>{
-    final audioName = "audio.mp3";
+    final audioName = ["audio1.mp3","audio2.mp3","audio.mp3"];
     final musicName = "Abc - 123";
     final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
     
@@ -60,7 +61,7 @@ void main() => runApp(MaterialApp(
       return <Widget>[
           CreateIconButton(Icons.play_arrow,Colors.grey,()
         {
-          audioCache.play(audioName);
+            audioCache.play(audioName[0]);   
         }),
         CreateIconButton(Icons.pause,Colors.green,()
         {
@@ -97,6 +98,12 @@ void main() => runApp(MaterialApp(
           }
           audioPlayer.setVolume(volumen);
         }),
+        CreateIconButton(Icons.skip_next,Colors.black, ()
+        {
+          for (var i = 0; i < 3; i++) {
+            audioPlayer.play(audioName[i]);
+          }
+        })
       ];
     }
   }
