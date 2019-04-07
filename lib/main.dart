@@ -15,8 +15,8 @@ void main() => runApp(MaterialApp(
 
   class _MusicPlayerState extends State <MusicPlayer>{
     final audioName = "audio1.mp3";
-    final musicName = "Abc - 123";
-    final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
+    final musicName = "Octavia - Te Quiero mucho";
+    final imageURL = "https://images.app.goo.gl/HZRvcSsauHCCHsnH9";
     
     Duration duration = Duration();
     Duration position = Duration();
