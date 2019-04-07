@@ -39,7 +39,7 @@ void main() => runApp(MaterialApp(
           position = p;
         });
         audioPlayer.durationHandler = (p) => setState((){
-          position = d;
+          duration = p;
         });
       }
 
@@ -48,6 +48,7 @@ void main() => runApp(MaterialApp(
         appBar: AppBar(
           title: Text("Music Player", style: TextStyle(
           fontSize: 20,
+          color: Colors.yellow,
         )),
       ),
       body: Center(
@@ -58,6 +59,7 @@ void main() => runApp(MaterialApp(
           children: audioControls(),
             ),
             Slider(
+            activeColor: Colors.green,
               value: position.inSeconds.toDouble(),
               max: duration.inSeconds.toDouble(),
               onChanged: (double seconds){
