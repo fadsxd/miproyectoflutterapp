@@ -18,6 +18,9 @@ void main() => runApp(MaterialApp(
     final musicName = "Abc - 123";
     final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
     
+    Duration duration = Duration();
+    Duration position = Duration();
+
     AudioPlayer audioPlayer;
     AudioCache audioCache;
 
@@ -32,6 +35,12 @@ void main() => runApp(MaterialApp(
         audioPlayer = AudioPlayer();
         audioCache = AudioCache(fixedPlayer: audioPlayer);
 
+        audioPlayer.positionHandler = (p) => setState((){
+          position = p;
+        });
+        audioPlayer.durationHandler = (p) => setState((){
+          position = d;
+        });
       }
 
     Widget build(BuildContext context){
@@ -48,8 +57,8 @@ void main() => runApp(MaterialApp(
               mainAxisAlignment: MainAxisAlignment.center,
           children: audioControls(),
             )
+
           ],
-        )
         )),
       );
     }
