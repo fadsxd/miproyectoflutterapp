@@ -16,7 +16,7 @@ void main() => runApp(MaterialApp(
   class _MusicPlayerState extends State <MusicPlayer>{
     final audioName = "audio1.mp3";
     final musicName = "Octavia - Te Quiero mucho";
-    final imageURL = "https://images.app.goo.gl/HZRvcSsauHCCHsnH9";
+    final imageURL = "https://los40es00.epimg.net/los40/imagenes/2017/11/28/album/1511885438_220718_1512040981_album_normal.jpg";
     
     Duration duration = Duration();
     Duration position = Duration();
@@ -94,7 +94,7 @@ void main() => runApp(MaterialApp(
       return <Widget>[
           CreateIconButton(Icons.play_arrow,Colors.grey,()
         {
-            audioCache.play(audioName[0]);   
+            audioCache.play(audioName);   
         }),
         CreateIconButton(Icons.pause,Colors.green,()
         {
