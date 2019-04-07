@@ -56,8 +56,16 @@ void main() => runApp(MaterialApp(
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
           children: audioControls(),
+            ),
+            Slider(
+              value: position.inSeconds.toDouble(),
+              max: duration.inSeconds.toDouble(),
+              onChanged: (double seconds){
+              setState(() {
+                              audioPlayer.seek(Duration(seconds: seconds.toInt()));
+                            });
+              },
             )
-
           ],
         )),
       );
