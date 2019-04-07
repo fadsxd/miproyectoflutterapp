@@ -54,10 +54,12 @@ void main() => runApp(MaterialApp(
       body: Center(
         child: Column(
           children: <Widget>[
+            Text(musicName, style: TextStyle(fontSize: 20)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
           children: audioControls(),
             ),
+            Image.network(imageURL),
             Slider(
             activeColor: Colors.green,
               value: position.inSeconds.toDouble(),
