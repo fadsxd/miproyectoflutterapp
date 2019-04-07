@@ -52,7 +52,11 @@ void main() => runApp(MaterialApp(
         )),
       ),
       body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+        
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
@@ -74,7 +78,7 @@ void main() => runApp(MaterialApp(
               },
             )
           ],
-        )),
+        ))),
       );
     }
     Widget CreateIconButton(IconData icon,Color color, VoidCallback onPressed){
