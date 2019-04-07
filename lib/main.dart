@@ -14,7 +14,7 @@ void main() => runApp(MaterialApp(
   }
 
   class _MusicPlayerState extends State <MusicPlayer>{
-    final audioName = ["audio1.mp3","audio2.mp3","audio.mp3"];
+    final audioName = "audio1.mp3";
     final musicName = "Abc - 123";
     final imageURL = "https://f4.bcbits.com/img/a3215224860_16.jpg";
     
@@ -42,9 +42,14 @@ void main() => runApp(MaterialApp(
         )),
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
           children: audioControls(),
+            )
+          ],
+        )
         )),
       );
     }
@@ -101,7 +106,7 @@ void main() => runApp(MaterialApp(
         CreateIconButton(Icons.skip_next,Colors.black, ()
         {
           for (var i = 0; i < 3; i++) {
-            audioPlayer.play(audioName[i]);
+            audioPlayer.play(audioName);
           }
         })
       ];
