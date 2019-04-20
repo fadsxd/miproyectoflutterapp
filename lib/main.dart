@@ -13,9 +13,9 @@ class MusicPlayer extends StatefulWidget {
 }
 
 class _MusicPlayerState extends State<MusicPlayer> {
-  final audioName = "audio1.mp3";
-  final musicName = "Octavia-Te Quiero Mucho";
-  final imageURL = "http://4.bp.blogspot.com/-x56AMzhJ7YM/UYlzz3U2c7I/AAAAAAAAl1o/jt3niRsbvac/s1600/octavia.jpg";
+  final audioName = ["audio1.mp3,audio2.mp3"];
+  final musicName = "Music";
+  final imageURL = "https://media1.tenor.com/images/b3e86955a0b0052baa344e21eaf2a3f6/tenor.gif?itemid=12190249";
 
   AudioPlayer audioPlayer;
   AudioCache audioCache;
@@ -46,7 +46,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Music Player",
+        title: Text("ReproductorMusica",
             style: TextStyle(fontSize: 20, color: Colors.yellow)),
         centerTitle: true,
       ),
@@ -107,18 +107,18 @@ class _MusicPlayerState extends State<MusicPlayer> {
 
       }),
       CreateIconButton(Icons.play_arrow, Colors.green, () {
-        audioCache.play(audioName);
+        audioCache.play(audioName[1]);
       }),
       CreateIconButton(Icons.pause, Colors.grey, () {
-        audioPlayer.stop();
+        audioPlayer.pause();
       }),
-      CreateIconButton(Icons.volume_up, Colors.green, () {
+      CreateIconButton(Icons.volume_up, Colors.yellow, () {
         if (volume < 1) {
           volume += 0.1;
           audioPlayer.setVolume(volume);
         }
       }),
-      CreateIconButton(Icons.volume_down, Colors.red, () {
+      CreateIconButton(Icons.volume_down, Colors.yellow, () {
         if (volume > 0) {
           volume -= 0.1;
           audioPlayer.setVolume(volume);
