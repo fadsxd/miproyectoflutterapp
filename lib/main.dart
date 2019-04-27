@@ -14,7 +14,7 @@ class MusicPlayer extends StatefulWidget {
 
 class _MusicPlayerState extends State<MusicPlayer> {
   final audioName = ["audio1.mp3","audio2.mp3"];
-  final musicName = "Music";
+  final musicName = "Rock And Roll lml";
   final imageURL = "http://files.aerozeppellin.webnode.es/200000003-7658677529/acdc.gif";
 
   AudioPlayer audioPlayer;
