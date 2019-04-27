@@ -13,9 +13,9 @@ class MusicPlayer extends StatefulWidget {
 }
 
 class _MusicPlayerState extends State<MusicPlayer> {
-  final audioName = ["audio1.mp3,audio2.mp3"];
+  final audioName = ["audio1.mp3","audio2.mp3"];
   final musicName = "Music";
-  final imageURL = "https://media1.tenor.com/images/b3e86955a0b0052baa344e21eaf2a3f6/tenor.gif?itemid=12190249";
+  final imageURL = "http://files.aerozeppellin.webnode.es/200000003-7658677529/acdc.gif";
 
   AudioPlayer audioPlayer;
   AudioCache audioCache;
@@ -105,9 +105,11 @@ class _MusicPlayerState extends State<MusicPlayer> {
     return <Widget>[
       CreateIconButton(Icons.skip_previous, Colors.black, (){
 
+        audioCache.play(audioName[0]);
+      
       }),
       CreateIconButton(Icons.play_arrow, Colors.green, () {
-        audioCache.play(audioName[1]);
+        audioCache.play(audioName[0]);
       }),
       CreateIconButton(Icons.pause, Colors.grey, () {
         audioPlayer.pause();
@@ -134,7 +136,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
         audioPlayer.setVolume(volume);
       }),
       CreateIconButton(Icons.skip_next, Colors.black, (){
-      
+            audioCache.play(audioName[1]);
       })
     ];
   }
